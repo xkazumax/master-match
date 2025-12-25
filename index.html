@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Master Match</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="heading">
+        <h1>MASTER MATCH</h1>
+        <p class="turn-info">Player 1: Set Code</p>
+    </div>
+
+    <div class="game-wrapper">
+
+        <div class="palette palette-left">
+            <span class="peg red"></span>
+            <span class="peg blue"></span>
+            <span class="peg green"></span>
+            <span class="peg yellow"></span>
+            <span class="peg purple"></span>
+            <span class="peg orange"></span>
+        </div>
+
+        <!-- PLAYER 1 -->
+        <div class="player-area active" data-player="1">
+            <h2 class="name">Player 1</h2>
+
+            <div class="setup-row">
+                <div class="guess">
+                    <span class="slot"></span><span class="slot"></span>
+                    <span class="slot"></span><span class="slot"></span>
+                </div>
+                <button class="setup-submit">Submit</button>
+            </div>
+
+            <div class="board">
+
+                <!-- 10 rows -->
+                <!-- Row template repeated (guess + Match? button + hidden feedback) -->
+                <!-- Row 1 -->
+                <div class="row">
+                    <div class="guess">
+                        <span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span>
+                    </div>
+
+                    <button class="match-btn"></button>
+
+                    <div class="feedback hidden">
+                        <div class="box exact-count"></div>
+                        <div class="box color-count"></div>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="row">
+                    <div class="guess">
+                        <span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span>
+                    </div>
+                    <button class="match-btn"></button>
+                    <div class="feedback hidden">
+                        <div class="box exact-count"></div>
+                        <div class="box color-count"></div>
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="row">
+                    <div class="guess">
+                        <span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span>
+                    </div>
+                    <button class="match-btn"></button>
+                    <div class="feedback hidden">
+                        <div class="box exact-count"></div>
+                        <div class="box color-count"></div>
+                    </div>
+                </div>
+
+                <!-- Row 4 -->
+                <div class="row">
+                    <div class="guess">
+                        <span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span>
+                    </div>
+                    <button class="match-btn"></button>
+                    <div class="feedback hidden">
+                        <div class="box exact-count"></div>
+                        <div class="box color-count"></div>
+                    </div>
+                </div>
+
+                <!-- Row 5 -->
+                <div class="row">
+                    <div class="guess">
+                        <span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span>
+                    </div>
+                    <button class="match-btn"></button>
+                    <div class="feedback hidden">
+                        <div class="box exact-count"></div>
+                        <div class="box color-count"></div>
+                    </div>
+                </div>
+
+                <!-- Row 6 -->
+                <div class="row">
+                    <div class="guess">
+                        <span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span>
+                    </div>
+                    <button class="match-btn"></button>
+                    <div class="feedback hidden">
+                        <div class="box exact-count"></div>
+                        <div class="box color-count"></div>
+                    </div>
+                </div>
+
+                <!-- Row 7 -->
+                <div class="row">
+                    <div class="guess">
+                        <span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span>
+                    </div>
+                    <button class="match-btn"></button>
+                    <div class="feedback hidden">
+                        <div class="box exact-count"></div>
+                        <div class="box color-count"></div>
+                    </div>
+                </div>
+
+                <!-- Row 8 -->
+                <div class="row">
+                    <div class="guess">
+                        <span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span>
+                    </div>
+                    <button class="match-btn"></button>
+                    <div class="feedback hidden">
+                        <div class="box exact-count"></div>
+                        <div class="box color-count"></div>
+                    </div>
+                </div>
+
+                <!-- Row 9 -->
+                <div class="row">
+                    <div class="guess">
+                        <span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span>
+                    </div>
+                    <button class="match-btn"></button>
+                    <div class="feedback hidden">
+                        <div class="box exact-count"></div>
+                        <div class="box color-count"></div>
+                    </div>
+                </div>
+
+                <!-- Row 10 -->
+                <div class="row">
+                    <div class="guess">
+                        <span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span>
+                    </div>
+                    <button class="match-btn"></button>
+                    <div class="feedback hidden">
+                        <div class="box exact-count"></div>
+                        <div class="box color-count"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PLAYER 2 -->
+        <div class="player-area inactive" data-player="2">
+            <h2 class="name">Player 2</h2>
+
+            <div class="setup-row">
+                <div class="guess">
+                    <span class="slot"></span><span class="slot"></span>
+                    <span class="slot"></span><span class="slot"></span>
+                </div>
+                <button class="setup-submit">Submit</button>
+            </div>
+
+            <div class="board">
+
+                <!-- Same row layout again (10 rows) -->
+                <!-- You can copy/paste from Player 1; I left it identical below -->
+
+                <div class="row">
+                    <div class="guess">
+                        <span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span>
+                    </div>
+                    <button class="match-btn"></button>
+                    <div class="feedback hidden">
+                        <div class="box exact-count"></div>
+                        <div class="box color-count"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="guess">
+                        <span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span>
+                    </div>
+                    <button class="match-btn"></button>
+                    <div class="feedback hidden">
+                        <div class="box exact-count"></div>
+                        <div class="box color-count"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="guess">
+                        <span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span>
+                    </div>
+                    <button class="match-btn"></button>
+                    <div class="feedback hidden">
+                        <div class="box exact-count"></div>
+                        <div class="box color-count"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="guess">
+                        <span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span>
+                    </div>
+                    <button class="match-btn"></button>
+                    <div class="feedback hidden">
+                        <div class="box exact-count"></div>
+                        <div class="box color-count"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="guess">
+                        <span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span>
+                    </div>
+                    <button class="match-btn"></button>
+                    <div class="feedback hidden">
+                        <div class="box exact-count"></div>
+                        <div class="box color-count"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="guess">
+                        <span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span>
+                    </div>
+                    <button class="match-btn"></button>
+                    <div class="feedback hidden">
+                        <div class="box exact-count"></div>
+                        <div class="box color-count"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="guess">
+                        <span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span>
+                    </div>
+                    <button class="match-btn"></button>
+                    <div class="feedback hidden">
+                        <div class="box exact-count"></div>
+                        <div class="box color-count"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="guess">
+                        <span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span>
+                    </div>
+                    <button class="match-btn"></button>
+                    <div class="feedback hidden">
+                        <div class="box exact-count"></div>
+                        <div class="box color-count"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="guess">
+                        <span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span>
+                    </div>
+                    <button class="match-btn"></button>
+                    <div class="feedback hidden">
+                        <div class="box exact-count"></div>
+                        <div class="box color-count"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="guess">
+                        <span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span>
+                    </div>
+                    <button class="match-btn"></button>
+                    <div class="feedback hidden">
+                        <div class="box exact-count"></div>
+                        <div class="box color-count"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="palette palette-right">
+            <span class="peg red"></span>
+            <span class="peg blue"></span>
+            <span class="peg green"></span>
+            <span class="peg yellow"></span>
+            <span class="peg purple"></span>
+            <span class="peg orange"></span>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

@@ -1,0 +1,454 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Lexend:wght@300;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Cinzel", sans-serif;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+body {
+    background: #1b1b1b;
+    color: #f3b080;
+}
+
+.heading {
+    margin: 30px auto;
+    text-align: center;
+}
+
+.game-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    padding: 20px;
+    margin-top: -10px;
+}
+
+.player-area {
+    width: 500px;
+    /* background: linear-gradient(to right, #7a5432, #3c2616); */
+    background:
+        /* subtle wood grain lines */
+        repeating-linear-gradient(90deg,
+            rgba(0, 0, 0, 0.05) 0px,
+            rgba(0, 0, 0, 0.05) 2px,
+            transparent 2px,
+            transparent 18px),
+        /* soft top highlight */
+        linear-gradient(rgba(255, 255, 255, 0.15),
+            rgba(0, 0, 0, 0.05)),
+        /* base wood gradient */
+        linear-gradient(to right, #7a5432, #3c2616);
+    box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.45);
+    border: 3px ridge #3c2616;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.player-area .name {
+    transition: 0.2s;
+}
+
+.player-area.active .name {
+    color: #ffd54f;
+    text-shadow: 0 0 10px rgba(255, 213, 79, .6);
+}
+
+
+.turn-info {
+    display: none;
+    font-size: 20px;
+    background-color: #59775a;
+    color: #d4d24d;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.name {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.setup-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background:
+        /* soft top highlight */
+        linear-gradient(rgba(255, 255, 255, 0.15),
+            rgba(0, 0, 0, 0.05)),
+        /* base wood gradient */
+        linear-gradient(to right, #1f1104, #130902);
+
+    box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.45);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    border: 3px ridge #3c2616;
+}
+
+.setup-row.hidden {
+    display: none;
+}
+
+.setup-submit {
+    padding: 10px;
+    background: linear-gradient(to right, #382d23, #69442a);
+    border: none;
+    color: #f3b080;
+    border-radius: 6px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: 0.2s;
+    border: 3px ridge #3c2616;
+    position: relative;
+    overflow: hidden;
+}
+
+.setup-submit:hover {
+    transform: scale(1.05);
+}
+
+.setup-submit::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, .25), transparent 40%);
+    pointer-events: none;
+}
+
+.board {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background:
+        /* soft top highlight */
+        linear-gradient(rgba(255, 255, 255, 0.15),
+            rgba(0, 0, 0, 0.05)),
+        /* base wood gradient */
+        linear-gradient(to right, #1f1104, #130902);
+
+    box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.45);
+    padding: 10px;
+    border-radius: 10px;
+    border: 3px ridge #3c2616;
+}
+
+.current-row {
+    border: 2px solid #4caf50;
+    box-shadow: 0 0 10px #4caf50;
+    transition: 0.2s;
+}
+
+.guess {
+    display: flex;
+    gap: 6px;
+}
+
+.slot {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background:
+        /* soft top highlight */
+        linear-gradient(rgba(255, 255, 255, 0.15),
+            rgba(0, 0, 0, 0.05)),
+        /* base wood gradient */
+        linear-gradient(to right, #7a5432, #3c2616);
+    box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.45);
+    border: 3px ridge #3c2616;
+
+}
+
+.match-btn {
+    color: #f3b080;
+    background: linear-gradient(to right, #382d23, #69442a);
+    padding: 10px;
+    font-size: 1.1em;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+    border: 3px ridge #3c2616;
+    position: relative;
+    overflow: hidden;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+}
+
+.match-btn:hover {
+    transform: scale(1.05);
+}
+
+.match-btn.hidden {
+    display: none !important;
+}
+
+.match-btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, .25), transparent 40%);
+    pointer-events: none;
+}
+
+.feedback {
+    display: flex;
+    gap: 6px;
+}
+
+.feedback.hidden {
+    display: none;
+}
+
+.box {
+    width: 47px;
+    height: 47px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.exact-count {
+    background: linear-gradient(to right, #382d23, #69442a);
+    border: 3px ridge #3c2616;
+    color: #d4d24d;
+}
+
+.color-count {
+    background: linear-gradient(to right, #382d23, #69442a);
+    border: 3px ridge #3c2616;
+    color: #ffffff;
+}
+
+.palette {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+    transform: rotate(90deg);
+    background:
+        /* subtle wood grain lines */
+        repeating-linear-gradient(90deg,
+            rgba(0, 0, 0, 0.05) 0px,
+            rgba(0, 0, 0, 0.05) 2px,
+            transparent 2px,
+            transparent 18px),
+        /* soft top highlight */
+        linear-gradient(rgba(255, 255, 255, 0.15),
+            rgba(0, 0, 0, 0.05)),
+        /* base wood gradient */
+        linear-gradient(to right, #7a5432, #3c2616);
+    box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.45);
+    border: 3px ridge #3c2616;
+    border-radius: 50px;
+    padding: 20px;
+}
+
+.palette-left {
+    margin-right: -200px;
+}
+
+.palette-right {
+    margin-left: -200px;
+}
+
+.peg {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border: 3px ridge #3c2616;
+}
+
+.peg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, .25), transparent 40%);
+    pointer-events: none;
+}
+
+.red {
+    background: linear-gradient(145deg, #ff4b4b, #b31217);
+}
+
+.blue {
+    background: linear-gradient(145deg, #4facfe, #0052d4);
+}
+
+.green {
+    background: linear-gradient(145deg, #7ee65f, #2f8f2f);
+}
+
+.yellow {
+    background: linear-gradient(145deg, #fff176, #f4c430);
+}
+
+.purple {
+    background: linear-gradient(145deg, #c471ed, #662d91);
+}
+
+.orange {
+    background: linear-gradient(145deg, #ffb347, #ff7e00);
+}
+
+.red,
+.blue,
+.green,
+.yellow,
+.purple,
+.orange {
+    transition: 0.2s;
+}
+
+.red:hover,
+.blue:hover,
+.green:hover,
+.yellow:hover,
+.purple:hover,
+.orange:hover {
+    transform: scale(1.05);
+}
+
+.wood-modal {
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0.05)),
+        linear-gradient(to right, #7a5432, #3c2616);
+    box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.45), 0 0 25px rgba(0,0,0,.6);
+    border: 3px ridge #3c2616;
+    color: #f3b080 !important;
+    border-radius: 12px;
+}
+
+.wood-title {
+    color: #ffd54f !important;
+    text-shadow: 0 0 10px rgba(255,213,79,.6);
+}
+
+.wood-btn {
+    background: linear-gradient(to right, #382d23, #69442a) !important;
+    border: 3px ridge #3c2616 !important;
+    color: #f3b080 !important;
+    border-radius: 8px !important;
+}
+
+
+/* ===== MOBILE / TABLET ===== */
+@media (max-width: 900px) {
+
+    .game-wrapper {
+        flex-direction: column;
+        gap: 40px;
+        padding: 10px;
+    }
+
+    .player-area {
+        width: 95%;
+        max-width: 500px;
+    }
+
+    .row {
+        padding: 6px;
+    }
+
+    .slot {
+        width: 28px;
+        height: 28px;
+    }
+
+    .box {
+        width: 34px;
+        height: 34px;
+        font-size: 1.1em;
+    }
+
+    .match-btn {
+        width: 85px;
+        height: 42px;
+        font-size: 0.9em;
+        padding: 6px;
+    }
+
+    /* Make the board scroll if too tall */
+    .board {
+        max-height: 300px;
+        overflow-y: auto;
+    }
+
+    /* palettes: remove crazy offset + shrink pegs */
+    .palette {
+        transform: rotate(0deg);
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 10px auto;
+        padding: 14px;
+    }
+
+    .palette-left,
+    .palette-right {
+        margin: 0;
+    }
+
+    .peg {
+        width: 45px;
+        height: 45px;
+    }
+
+    .turn-info {
+        font-size: 16px;
+        text-align: center;
+    }
+}
+
+/* ===== VERY SMALL PHONES ===== */
+/* @media (max-width: 500px) {
+
+    .heading {
+        margin: 10px auto;
+        font-size: 14px;
+    }
+
+    .game-wrapper {
+        gap: 20px;
+    }
+
+    .slot {
+        width: 24px;
+        height: 24px;
+    }
+
+    .peg {
+        width: 38px;
+        height: 38px;
+    }
+
+    .match-btn {
+        width: 75px;
+        height: 38px;
+        font-size: 0.8em;
+    }
+
+    .box {
+        width: 30px;
+        height: 30px;
+    }
+} */
+
