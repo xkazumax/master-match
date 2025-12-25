@@ -388,10 +388,10 @@ body {
     }
 
     /* Make the board scroll if too tall */
-    .board {
+    /* .board {
         max-height: 300px;
         overflow-y: auto;
-    }
+    } */
 
     /* palettes: remove crazy offset + shrink pegs */
     .palette {
