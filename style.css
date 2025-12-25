@@ -419,7 +419,7 @@ body {
 }
 
 /* ===== VERY SMALL PHONES ===== */
-/* @media (max-width: 500px) {
+@media (max-width: 500px) {
 
     .heading {
         margin: 10px auto;
@@ -450,5 +450,5 @@ body {
         width: 30px;
         height: 30px;
     }
-} */
+}
 
