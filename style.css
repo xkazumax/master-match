@@ -97,8 +97,8 @@ body {
 }
 
 .setup-row.current-row {
-    border: 2px solid #d4d24d;
-    box-shadow: 0 0 10px #d4d24d;
+    border: 2px solid #d4a54d;
+    box-shadow: 0 0 10px #d4a54d;
     transition: 0.2s;
 }
 
@@ -167,8 +167,8 @@ body {
 }
 
 .current-row {
-    border: 2px solid #d4d24d;
-    box-shadow: 0 0 10px #d4d24d;
+    border: 2px solid #d4a54d;
+    box-shadow: 0 0 10px #d4a54d;
     transition: 0.2s;
     pointer-events:auto;
 }
@@ -401,14 +401,14 @@ body {
     }
 
     .slot {
-        width: 28px;
-        height: 28px;
+        width: 33px;
+        height: 33px;
     }
 
     .box {
         width: 34px;
         height: 34px;
-        font-size: 1.2em;
+        font-size: 1.4em;
     }
 
     .setup-submit {
@@ -469,8 +469,8 @@ body {
     }
 
     .slot {
-        width: 24px;
-        height: 24px;
+        width: 32px;
+        height: 32px;
     }
 
     .peg {
@@ -481,18 +481,11 @@ body {
     .setup-submit {
         width: 75px;
         height: 38px;
-        font-size: 0.9em;
     }
 
     .match-btn {
         width: 75px;
         height: 38px;
-        font-size: 0.9em;
-    }
-
-    .box {
-        width: 30px;
-        height: 30px;
     }
 }
 
