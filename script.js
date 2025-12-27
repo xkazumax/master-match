@@ -63,6 +63,8 @@ document.querySelectorAll(".setup-submit").forEach(btn => {
     btn.addEventListener("click", () => {
         if (setupSelection.filter(Boolean).length < CODE_LENGTH) return;
 
+        btn.closest(".player-area").querySelector(".line").style.display = "none";
+
         if (activePlayer === 1) {
             p1Code = [...setupSelection];
             areas[1].querySelector(".setup-row").classList.add("hidden");
@@ -271,6 +273,8 @@ function next(p) {
     } else {
         // setup phases: don't touch match buttons
         areas.forEach(a => a.classList.remove("active", "inactive"));
+        activePlayer = phase === "P1_SETUP" ? 1 : 2;
+        updateUI();
     }
 }
 
@@ -344,6 +348,8 @@ function resetGame() {
     // enable palettes
     palettes.forEach(p => p.style.pointerEvents = "auto");
 
+    areas.forEach(area => area.querySelector(".line").style.display = "block");
+
     updateUI();
     // DO NOT call updateMatchButtons() here; highlighting will happen only when guessing starts
 }
@@ -383,18 +389,30 @@ function updateMatchButtons() {
 
 
 /* =======================  UI  ======================= */
+
 function updateUI() {
     areas.forEach((a, i) => {
-        a.classList.toggle("active", i + 1 === activePlayer);
-        a.classList.toggle("inactive", i + 1 !== activePlayer);
+        const isActive = i + 1 === activePlayer;
+        a.classList.toggle("active", isActive);
+        a.classList.toggle("inactive", !isActive);
+
+        // Highlight current setup row correctly
+        const setupRow = a.querySelector(".setup-row");
+        if (phase.includes("SETUP")) {
+            // active player edits opponent's row
+            const shouldHighlight = (activePlayer === 1 && i === 1) || (activePlayer === 2 && i === 0);
+            setupRow.classList.toggle("current-row", shouldHighlight);
+        } else {
+            setupRow.classList.remove("current-row");
+        }
     });
 
     info.textContent =
         phase === "P1_SETUP" ? "Player 1: Set Code" :
-            phase === "P2_SETUP" ? "Player 2: Set Code" :
-                phase === "P1_GUESS" ? "Player 1 Guessing" :
-                    "Player 2 Guessing";
+        phase === "P2_SETUP" ? "Player 2: Set Code" :
+        phase === "P1_GUESS" ? "Player 1 Guessing" :
+        "Player 2 Guessing";
 }
 
 
-                                                         
+
