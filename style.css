@@ -55,6 +55,9 @@ body {
 .player-area.active .name {
     color: #ffd54f;
     text-shadow: 0 0 10px rgba(255, 213, 79, .6);
+    /* border: 2px solid #ffd54f;
+    box-shadow: 0 0 10px rgba(255, 213, 79, .6);
+    border-radius: 6px; */
 }
 
 
@@ -336,12 +339,22 @@ body {
     background: linear-gradient(145deg, #ffb347, #ff7e00);
 }
 
+.pink {
+    background: linear-gradient(145deg, #ed71e3, #8a2882);
+}
+
+.cyan {
+    background: linear-gradient(145deg, #82e1ee, #338d99);
+}
+
 .red,
 .blue,
 .green,
 .yellow,
 .purple,
-.orange {
+.orange,
+.pink,
+.cyan {
     transition: 0.2s;
 }
 
@@ -350,7 +363,9 @@ body {
 .green:hover,
 .yellow:hover,
 .purple:hover,
-.orange:hover {
+.orange:hover,
+.pink:hover,
+.cyan:hover {
     transform: scale(1.05);
 }
 
@@ -374,6 +389,13 @@ body {
     border: 3px ridge #3c2616 !important;
     color: #f3b080 !important;
     border-radius: 8px !important;
+}
+
+/* Allow scrolling behind SweetAlert */
+html.swal2-shown,
+body.swal2-shown {
+  overflow: auto !important;
+  padding-right: 0 !important; /* prevents layout shift */
 }
 
 
@@ -425,17 +447,11 @@ body {
         padding: 6px;
     }
 
-    /* Make the board scroll if too tall */
-    /* .board {
-        max-height: 300px;
-        overflow-y: auto;
-    } */
-
     /* palettes: remove crazy offset + shrink pegs */
     .palette {
         transform: rotate(0deg);
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 5px;
         margin: 10px auto;
         padding: 14px;
     }
